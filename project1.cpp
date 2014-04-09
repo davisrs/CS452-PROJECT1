@@ -17,7 +17,7 @@
 #define ARRAY_COUNT( array ) (sizeof( array ) / (sizeof( array[0] ) * (sizeof( array ) != sizeof(void*) || sizeof( array[0] ) <= sizeof(void*))))
 
 //MACRO For Collision detection fix
-#define epsilon 1
+#define epsilon 20
 //#define epsilon 0.0001
 
 GLuint shaderProgramID;
@@ -165,7 +165,7 @@ void keyboard( unsigned char key, int x, int y ){
 		printf("box_x_1 %f\n", box_x_1);
 		printf("(vertices[box_1x]+horizontal) %f\n", (vertices[box_1x]+horizontal));
 		printf("vertices[plat_4x] %f\n",vertices[plat_4x]);
-		printf("(vertices[box_1x]+horizontal) == vertices[plat_4x]) = %s\n",( (vertices[box_1x]+horizontal) == vertices[plat_4x]) ? "true" : "false");
+		printf("(vertices[box_1x]+horizontal) == vertices[plat_4x]) = %s\n",( ( ( -epsilon <= (box_x_0 - vertices[plat_1x])) && ( (box_x_0 - vertices[plat_1x]) <= epsilon ) ) && ( box_y >= vertices[plat_1y] && box_y < vertices[plat_2y] ) ) ? "true" : "false");
 		printf("(box_x_1 == vertices[plat_4x]) = %s\n", ( box_x_1 == vertices[plat_4x] ) ? "true" : "false");
 		printf("(box_x_1 - vertices[plat_4x]) = %f\n", ( box_x_1 - vertices[plat_4x] ) );
 		break;
