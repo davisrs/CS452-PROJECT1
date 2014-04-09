@@ -157,11 +157,11 @@ int main (int argc, char** argv) {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 	// Create the buffer, but don't load anything yet
-	glBufferData(GL_ARRAY_BUFFER, sizeof(colors)*sizeof(vertices), NULL, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), NULL, GL_STATIC_DRAW);
 	// Load the vertex points
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices); 
 	// Load the colors right after that
-	glBufferSubData(GL_ARRAY_BUFFER, sizeof(vertices),sizeof(colors), colors);
+	//glBufferSubData(GL_ARRAY_BUFFER, sizeof(vertices),sizeof(colors), colors);
 
 
 	//glBufferData(GL_ARRAY_BUFFER, 6*NUM_VERTICES*sizeof(GLfloat), NULL, GL_STATIC_DRAW);
@@ -189,10 +189,8 @@ int main (int argc, char** argv) {
 
 	glUseProgram(shaderProgramID);
 	glEnableVertexAttribArray(positionID);
-	glEnableVertexAttribArray(colorID);
 	
 	glutMainLoop();
 	
 	return 0;
 }
-

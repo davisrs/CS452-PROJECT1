@@ -14,10 +14,8 @@ out vec4 color;
 void main () {
 	color = s_vColor;
 
-	// Old way we did it when it was between -1 and +1 (Normalized Device Coordinates, NDCs)
-	// gl_Position = s_vPosition;
-
 	// New way using matrix multiplication.  From local, to world, to camera, to NDCs
-	gl_Position = mP*mV*mM*s_vPosition;
+	//gl_Position = mP*mV*mM*s_vPosition;
+	gl_Position = s_vPosition;
 
 }

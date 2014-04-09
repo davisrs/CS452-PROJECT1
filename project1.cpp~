@@ -17,7 +17,7 @@
 #define ARRAY_COUNT( array ) (sizeof( array ) / (sizeof( array[0] ) * (sizeof( array ) != sizeof(void*) || sizeof( array[0] ) <= sizeof(void*))))
 
 //MACRO For Collision detection fix
-#define epsilon 1
+#define epsilon 0.1
 //#define epsilon 0.0001
 
 GLuint shaderProgramID;
