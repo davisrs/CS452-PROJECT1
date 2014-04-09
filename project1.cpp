@@ -124,11 +124,23 @@ void keyboard( unsigned char key, int x, int y ){
 	int box_0x=0;//sw corner
 	int box_0y=1;
 	int box_1x=3;//se corner
+	int box_2y=7;
+	
+	float box_top=vertices[box_2y]+vertical;//top of box
+	float box_bot=vertices[box_0y]+vertical;//bottom of box
+	float box_left=vertices[box_0x]+horizontal;//left side coord of box
+	float box_right=vertices[box_1x]+horizontal;//right side coord of box
+	
 	int plat_1x=15;//left se
 	int plat_1y=16;
 	int plat_2x=18;//left ne
 	int plat_2y=19;
 	int plat_4x=24;//right sw
+	
+	float plat_top=vertices[plat_2y];//top of platform
+	float plat_bot=vertices[plat_1y];//bottom of platform
+	float plat_left_hole=vertices[plat_1x];//left side of hole
+	float plat_right_hole=vertices[plat_4x];//right side of hole
 	//int temp_h= horizontal;
 	//int temp_v= vertical;
 	float box_x=vertices[box_0x]+horizontal;//lower left coord
