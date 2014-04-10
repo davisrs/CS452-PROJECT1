@@ -217,8 +217,13 @@ void keyboard( unsigned char key, int x, int y ){
 		vertical += 0.1;
 		break;
 	case 's'://down
+	
+		if ((box_left >= plat_left_hole) and (box_right <= plat_right_hole)){//ARE WE IN A HOLE?
+			printf("\nI'm in a hole!\nSo I moved Down!\n");
+			vertical -= 0.1;//yes go ahead
+			}//If I'm in the hole I should always be able to move down so CHECK ME FIRST!
 		
-		if (box_bot > (plat_top)){//Are we above the platform? //This used to say //if (box_bot >= (plat_top+0.1))//half the fall dist?
+		else if (box_top - 0.1 > (plat_top)){//Are we above the platform? //This used to say //if (box_bot >= (plat_top+0.1))//half the fall dist?//Take where I am, if I move down, do I go under the platform?
 			printf("\nI'm above a platform!\nSo I moved Down!\n");
 			vertical -= 0.1;//Go Ahead
 		}
