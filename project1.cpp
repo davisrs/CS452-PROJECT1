@@ -217,7 +217,34 @@ void keyboard( unsigned char key, int x, int y ){
 		vertical += 0.1;
 		break;
 	case 's'://down
-		vertical -= 0.1;
+		
+		if (box_bot > (plat_top)){//Are we above the platform? //This used to say //if (box_bot >= (plat_top+0.1))//half the fall dist?
+			printf("\nI'm above a platform!\nSo I moved Down!\n");
+			vertical -= 0.1;//Go Ahead
+		}
+		else{//we must be below the top of the platform --either in a hole or beneath the platform itself
+			printf("\nI'm not above a platform!\nBOX_BOT=%f != PLAT TOP=%f\n",box_bot , plat_top);
+			if (box_bot <= plat_top){//Are we beneath the top of a platform? --true if above is false
+			//ARE WE IN A HOLE?
+				if ((box_left >= plat_left_hole) and (box_right <= plat_right_hole)){//ARE WE IN A HOLE?
+					printf("\nI'm in a hole!\nSo I moved Down!\n");
+					vertical -= 0.1;//yes go ahead
+				}
+				else{//so I'm beneath or on the surface but not in a hole? (Check if beneath and allow)
+					printf("\n...I'm not in a hole!\n");
+					if (box_bot <= plat_bot){//Am I under a platform?
+						printf("\nI must be between platforms!\nSo I moved Down!\n");
+						vertical -= 0.1;//yes go ahead, I'm in between platforms so go down
+					}
+					else{
+						//...so...I'm on or in a platform but not in the hole...
+						printf("\nI'm on or in a platform but not in the hole\n");
+						printf("I can't move!\n");//DONT MOVE!
+					}
+				}
+			}
+		}
+		
 		break;
 	case 033:
 	    exit( EXIT_SUCCESS );
