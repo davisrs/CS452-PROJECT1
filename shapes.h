@@ -8,10 +8,10 @@ square
 GLfloat vertices[] = {
 	//square
 	//x	y	z
-	-0.05f,	-0.05f,	0.00f,	//0	box_0	0-2	box_0x=0
-	0.05f,	-0.05f,	0.00f,	//1	box_1	3-5	box_1x=3
-	0.05f,	0.05f,	0.00f,	//2	box_2	6-8	box_2x=6
-	-0.05f,	0.05f,	0.00f,	//3	box_3	9-11	box_3x=9
+	-0.04f,	-0.04f,	0.00f,	//0	box_0	0-2	box_0x=0
+	0.04f,	-0.04f,	0.00f,	//1	box_1	3-5	box_1x=3
+	0.04f,	0.04f,	0.00f,	//2	box_2	6-8	box_2x=6
+	-0.04f,	0.04f,	0.00f,	//3	box_3	9-11	box_3x=9
 
 	//platform 1
 	-1.0f,	-0.05f,	0.00f, //4-0	
